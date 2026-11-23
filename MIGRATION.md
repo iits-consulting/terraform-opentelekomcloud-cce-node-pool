@@ -225,6 +225,7 @@ All other `cluster_*` variables (`cluster_vpc_id`, `cluster_subnet_id`, `cluster
 | `node_storage_size` | `node_pool_storage_size` | |
 | `node_storage_encryption_enabled` | `node_pool_storage_encryption_enabled` | |
 | `node_storage_encryption_kms_key_name` | `node_pool_storage_encryption_kms_key_name` | |
+| `node_storage_encryption_kms_key_rotation_interval` | `node_pool_storage_encryption_kms_key_rotation_interval` | |
 | `node_storage_runtime_size` | `node_pool_storage_runtime_size` | |
 | `node_storage_kubernetes_size` | `node_pool_storage_kubernetes_size` | |
 | `node_storage_remainder_path` | `node_pool_storage_remainder_path` | |

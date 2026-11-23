@@ -30,6 +30,8 @@ resource "opentelekomcloud_kms_key_v1" "node_pool_storage_encryption_key" {
   key_description = "${local.node_pool_name_base} CCE Node Pool volume encryption key"
   pending_days    = 7
   is_enabled      = "true"
+  rotation_enabled  = var.node_pool_storage_encryption_kms_key_rotation_interval != null
+  rotation_interval = var.node_pool_storage_encryption_kms_key_rotation_interval
 }
 
 data "opentelekomcloud_kms_key_v1" "node_storage_encryption_existing_key" {
