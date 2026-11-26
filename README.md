@@ -176,7 +176,7 @@ No modules.
 | <a name="input_node_pool_storage_remainder_path"></a> [node\_pool\_storage\_remainder\_path](#input\_node\_pool\_storage\_remainder\_path) | If the runtime & kubernetes sizes do not add up to 100(%), otc wants to know where/how to mount the remaining space. Note that there are forbidden paths, see otc-documentation for which paths are forbidden. | `string` | `null` | no |
 | <a name="input_node_pool_storage_runtime_size"></a> [node\_pool\_storage\_runtime\_size](#input\_node\_pool\_storage\_runtime\_size) | How much of the data disk (in percent) is reserved for the node runtime storage (i.e. docker images). OTC default is 90 | `number` | `null` | no |
 | <a name="input_node_pool_storage_size"></a> [node\_pool\_storage\_size](#input\_node\_pool\_storage\_size) | Size of the node system disk in GB | `number` | `100` | no |
-| <a name="input_node_pool_storage_type"></a> [node\_pool\_storage\_type](#input\_node\_pool\_storage\_type) | Type of storage for the nodes in node pool. | `string` | `"SATA"` | no |
+| <a name="input_node_pool_storage_type"></a> [node\_pool\_storage\_type](#input\_node\_pool\_storage\_type) | Type of storage for the nodes in node pool: SAS, SSD, GPSSD, GPSSD2 or ESSD. SATA only works for existing node pools. | `string` | `"GPSSD"` | no |
 | <a name="input_node_pool_subnet_id"></a> [node\_pool\_subnet\_id](#input\_node\_pool\_subnet\_id) | The UUID of the subnet for the nodes in the pool. | `string` | `null` | no |
 | <a name="input_node_pool_user_tags"></a> [node\_pool\_user\_tags](#input\_node\_pool\_user\_tags) | User tags for the nodes in the pool. | `map(string)` | `{}` | no |
 
