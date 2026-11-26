@@ -230,8 +230,8 @@ variable "node_pool_root_volume_type" {
 
 variable "node_pool_storage_type" {
   type        = string
-  description = "Type of storage for the nodes in node pool."
-  default     = "SATA"
+  description = "Type of storage for the nodes in node pool: SAS, SSD, GPSSD, GPSSD2 or ESSD. SATA only works for existing node pools."
+  default     = "GPSSD"
 }
 
 variable "node_pool_storage_size" {
