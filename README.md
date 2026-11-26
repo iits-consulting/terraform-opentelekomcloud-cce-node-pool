@@ -99,7 +99,7 @@ The pool's `name` attribute is mutable in the OTC API. Adopting this module on t
 ## Requirements
 
 | Name | Version |
-| ---- | ------- |
+|------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7 |
 | <a name="requirement_errorcheck"></a> [errorcheck](#requirement\_errorcheck) | 3.0.3 |
 | <a name="requirement_opentelekomcloud"></a> [opentelekomcloud](#requirement\_opentelekomcloud) | >= 1.36.52, < 2.0.0 |
@@ -109,7 +109,7 @@ The pool's `name` attribute is mutable in the OTC API. Adopting this module on t
 ## Providers
 
 | Name | Version |
-| ---- | ------- |
+|------|---------|
 | <a name="provider_errorcheck"></a> [errorcheck](#provider\_errorcheck) | 3.0.3 |
 | <a name="provider_opentelekomcloud"></a> [opentelekomcloud](#provider\_opentelekomcloud) | >= 1.36.52, < 2.0.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | ~> 3.0 |
@@ -122,7 +122,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-| ---- | ---- |
+|------|------|
 | [errorcheck_is_valid.cluster_name_or_cluster_id_exists](https://registry.terraform.io/providers/iits-consulting/errorcheck/3.0.3/docs/resources/is_valid) | resource |
 | [errorcheck_is_valid.ensure_found_clusters_greater_0](https://registry.terraform.io/providers/iits-consulting/errorcheck/3.0.3/docs/resources/is_valid) | resource |
 | [errorcheck_is_valid.ensure_found_clusters_lesser_2](https://registry.terraform.io/providers/iits-consulting/errorcheck/3.0.3/docs/resources/is_valid) | resource |
@@ -143,7 +143,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-| ---- | ----------- | ---- | ------- | :------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_node_pool_availability_zone"></a> [node\_pool\_availability\_zone](#input\_node\_pool\_availability\_zone) | Availability zone for the nodes in the pool. | `string` | n/a | yes |
 | <a name="input_node_pool_flavor"></a> [node\_pool\_flavor](#input\_node\_pool\_flavor) | Node specifications in OTC flavor format | `string` | n/a | yes |
 | <a name="input_node_pool_node_count"></a> [node\_pool\_node\_count](#input\_node\_pool\_node\_count) | Number of nodes to create within the node pool. | `number` | n/a | yes |
@@ -171,6 +171,7 @@ No modules.
 | <a name="input_node_pool_server_group_reference"></a> [node\_pool\_server\_group\_reference](#input\_node\_pool\_server\_group\_reference) | ECS group ID. If this parameter is specified, all nodes in the node pool will be created in this ECS group. | `string` | `null` | no |
 | <a name="input_node_pool_storage_encryption_enabled"></a> [node\_pool\_storage\_encryption\_enabled](#input\_node\_pool\_storage\_encryption\_enabled) | Enable OTC KMS volume encryption for the node pool volumes. | `bool` | `true` | no |
 | <a name="input_node_pool_storage_encryption_kms_key_name"></a> [node\_pool\_storage\_encryption\_kms\_key\_name](#input\_node\_pool\_storage\_encryption\_kms\_key\_name) | Allows using an existing KMS key defined by the user. If left unspecified a KMS key will be created automatically if node\_pool\_storage\_encryption\_enabled is enabled. | `string` | `null` | no |
+| <a name="input_node_pool_storage_encryption_kms_key_rotation_interval"></a> [node\_pool\_storage\_encryption\_kms\_key\_rotation\_interval](#input\_node\_pool\_storage\_encryption\_kms\_key\_rotation\_interval) | Rotation interval in days (30-365) for the KMS key created by this module. Setting a value enables automatic key rotation. null turns rotation off, also on a key where it was enabled outside of Terraform. Has no effect if node\_pool\_storage\_encryption\_enabled is false or an existing key is passed via node\_pool\_storage\_encryption\_kms\_key\_name. (default: null) | `number` | `null` | no |
 | <a name="input_node_pool_storage_kubernetes_size"></a> [node\_pool\_storage\_kubernetes\_size](#input\_node\_pool\_storage\_kubernetes\_size) | How much of the data disk (in percent) is reserved for the kubernetes runtime storage (i.e. ephemeral storage). OTC default is 10 | `number` | `null` | no |
 | <a name="input_node_pool_storage_remainder_path"></a> [node\_pool\_storage\_remainder\_path](#input\_node\_pool\_storage\_remainder\_path) | If the runtime & kubernetes sizes do not add up to 100(%), otc wants to know where/how to mount the remaining space. Note that there are forbidden paths, see otc-documentation for which paths are forbidden. | `string` | `null` | no |
 | <a name="input_node_pool_storage_runtime_size"></a> [node\_pool\_storage\_runtime\_size](#input\_node\_pool\_storage\_runtime\_size) | How much of the data disk (in percent) is reserved for the node runtime storage (i.e. docker images). OTC default is 90 | `number` | `null` | no |
@@ -182,7 +183,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-| ---- | ----------- |
+|------|-------------|
 | <a name="output_node_pool"></a> [node\_pool](#output\_node\_pool) | Complete configuration of the created node pool. |
 | <a name="output_node_pool_id"></a> [node\_pool\_id](#output\_node\_pool\_id) | UUID of the node pool. |
 | <a name="output_node_pool_keypair_name"></a> [node\_pool\_keypair\_name](#output\_node\_pool\_keypair\_name) | Name of the SSH keypair used by the node pool (auto-generated or supplied via node\_pool\_keypair\_name). |

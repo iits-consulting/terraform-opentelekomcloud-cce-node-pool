@@ -25,11 +25,13 @@ resource "random_id" "node_pool_storage_encryption_key_id" {
 }
 
 resource "opentelekomcloud_kms_key_v1" "node_pool_storage_encryption_key" {
-  count           = var.node_pool_storage_encryption_enabled && var.node_pool_storage_encryption_kms_key_name == null ? 1 : 0
-  key_alias       = "${local.node_pool_name_base}-${random_id.node_pool_storage_encryption_key_id[0].hex}"
-  key_description = "${local.node_pool_name_base} CCE Node Pool volume encryption key"
-  pending_days    = 7
-  is_enabled      = "true"
+  count             = var.node_pool_storage_encryption_enabled && var.node_pool_storage_encryption_kms_key_name == null ? 1 : 0
+  key_alias         = "${local.node_pool_name_base}-${random_id.node_pool_storage_encryption_key_id[0].hex}"
+  key_description   = "${local.node_pool_name_base} CCE Node Pool volume encryption key"
+  pending_days      = 7
+  is_enabled        = "true"
+  rotation_enabled  = var.node_pool_storage_encryption_kms_key_rotation_interval != null
+  rotation_interval = var.node_pool_storage_encryption_kms_key_rotation_interval
 }
 
 data "opentelekomcloud_kms_key_v1" "node_storage_encryption_existing_key" {
